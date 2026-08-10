@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS Resume Scorer — Analyze Your Resume</title>
+    <meta name="description" content="Upload your resume and get an instant ATS compatibility score with detailed feedback and recommendations.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>">
+</head>
+<body>
+
+    <!-- Animated Background -->
+    <div class="bg-gradient">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">📄</div>
+            </div>
+            <h1>ATS Resume Scorer</h1>
+            <p class="subtitle">Upload your resume and get an instant ATS compatibility score</p>
+        </header>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="error-message">
+            <span>⚠️</span>
+            <span id="errorText"></span>
+        </div>
+
+        <!-- Upload Form -->
+        <form id="uploadForm" enctype="multipart/form-data">
+            <!-- Drag & Drop Upload Zone -->
+            <div id="uploadZone" class="upload-zone glass">
+                <span class="upload-icon">📁</span>
+                <p class="upload-title">Drag & Drop Your Resume</p>
+                <p class="upload-subtitle">or <span class="highlight">click to browse</span> — PDF or DOCX (max 10MB)</p>
+                <input type="file" id="fileInput" name="resume" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden>
+
+                <!-- File Preview -->
+                <div id="filePreview" class="file-preview">
+                    <span class="file-icon" id="fileIcon">📄</span>
+                    <div>
+                        <div class="file-name" id="fileName">—</div>
+                        <div class="file-size" id="fileSize">—</div>
+                    </div>
+                    <button type="button" class="file-remove" id="fileRemove" title="Remove file">✕</button>
+                </div>
+            </div>
+
+            <!-- Profile Type Selector -->
+            <div class="profile-selector">
+                <span class="label">I am a…</span>
+                <div class="profile-options">
+                    <div class="profile-option">
+                        <input type="radio" id="profileFresher" name="profileType" value="fresher" checked>
+                        <label for="profileFresher">
+                            <span class="profile-emoji">🎓</span>
+                            <span class="profile-name">Fresher</span>
+                            <span class="profile-desc">Student / Graduate / 0–1 years</span>
+                        </label>
+                    </div>
+                    <div class="profile-option">
+                        <input type="radio" id="profileExperienced" name="profileType" value="experienced">
+                        <label for="profileExperienced">
+                            <span class="profile-emoji">💼</span>
+                            <span class="profile-name">Experienced</span>
+                            <span class="profile-desc">2+ years of professional experience</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" id="submitBtn" class="btn-submit" disabled>
+                <span class="btn-shimmer"></span>
+                🚀 Analyze My Resume
+            </button>
+        </form>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <div class="ring ring-1"></div>
+            <div class="ring ring-2"></div>
+            <div class="ring ring-3"></div>
+        </div>
+        <div class="loading-text">Analyzing Your Resume…</div>
+        <div class="loading-steps">
+            <div class="step" id="step1">📄 Extracting text from document…</div>
+            <div class="step" id="step2">🔍 Scanning for keywords & skills…</div>
+            <div class="step" id="step3">📊 Calculating ATS score…</div>
+            <div class="step" id="step4">💡 Generating recommendations…</div>
+        </div>
+    </div>
+
+    <script src="js/upload.js"></script>
+</body>
+</html>
