@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS Score Results — Resume Analysis</title>
+    <meta name="description" content="Your detailed ATS resume score with category breakdown, skill analysis, role fit, and personalized recommendations.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+</head>
+<body>
+
+    <!-- Animated Background -->
+    <div class="bg-gradient">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- SVG Gradient Defs -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <linearGradient id="gradientGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#22c55e"/><stop offset="100%" stop-color="#14b8a6"/>
+            </linearGradient>
+            <linearGradient id="gradientBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#14b8a6"/>
+            </linearGradient>
+            <linearGradient id="gradientTeal" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#14b8a6"/><stop offset="100%" stop-color="#06b6d4"/>
+            </linearGradient>
+            <linearGradient id="gradientYellow" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#eab308"/><stop offset="100%" stop-color="#f97316"/>
+            </linearGradient>
+            <linearGradient id="gradientOrange" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#f97316"/><stop offset="100%" stop-color="#ef4444"/>
+            </linearGradient>
+            <linearGradient id="gradientRed" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#ef4444"/><stop offset="100%" stop-color="#dc2626"/>
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <div class="container wide">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">📊</div>
+            </div>
+            <h1>Your ATS Score</h1>
+            <p class="subtitle">Detailed analysis of your resume's ATS compatibility</p>
+        </header>
+
+        <!-- Score Hero -->
+        <div id="scoreHero" class="score-hero glass">
+            <div class="score-circle-container">
+                <div class="score-circle">
+                    <svg viewBox="0 0 200 200">
+                        <circle class="track" cx="100" cy="100" r="90"/>
+                        <circle id="scoreProgress" class="progress" cx="100" cy="100" r="90"/>
+                    </svg>
+                </div>
+                <div class="score-value">
+                    <div id="scoreNumber" class="score-number">0</div>
+                    <div class="score-label">ATS Score</div>
+                </div>
+            </div>
+            <div id="gradeBadge" class="grade-badge">—</div>
+            <div class="mt-8">
+                <span id="profileBadge" class="profile-badge">—</span>
+            </div>
+            <div id="metaBadges" class="meta-badges"></div>
+        </div>
+
+        <!-- Issues / Mistakes (NEW - collapsible dropdown) -->
+        <div class="issues-section">
+            <button id="issuesToggle" class="issues-toggle">
+                <span class="toggle-left">
+                    <span class="icon">🔍</span>
+                    <span>Issues & Fixes</span>
+                    <span id="issueCountBadges" class="issue-count-badges"></span>
+                </span>
+                <span class="toggle-arrow">▼</span>
+            </button>
+            <div id="issuesList" class="issues-list">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- Category Breakdown -->
+        <div class="breakdown-section mb-32">
+            <div class="section-title">
+                <span class="icon">📊</span> Score Breakdown
+            </div>
+            <div id="breakdownGrid" class="breakdown-grid"></div>
+        </div>
+
+        <!-- Best Fit Roles (NEW) -->
+        <div class="roles-section">
+            <div class="section-title">
+                <span class="icon">🎯</span> Best Fit Roles
+            </div>
+            <div id="rolesGrid" class="roles-grid"></div>
+        </div>
+
+        <!-- Skills -->
+        <div class="skills-section">
+            <div class="section-title">
+                <span class="icon">🎯</span> Skill Analysis
+            </div>
+            <div class="skills-grid">
+                <div class="skills-card matched glass-sm">
+                    <div class="skills-card-title">✅ Matched Skills</div>
+                    <div id="matchedTags" class="skill-tags"></div>
+                </div>
+                <div class="skills-card missing glass-sm">
+                    <div class="skills-card-title">⚡ Suggested Skills</div>
+                    <div id="missingTags" class="skill-tags"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="mb-32">
+            <div class="section-title">
+                <span class="icon">📬</span> Contact Information
+            </div>
+            <div id="contactBadges" class="contact-badges"></div>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="recs-section">
+            <div class="section-title">
+                <span class="icon">💡</span> Recommendations
+            </div>
+            <ul id="recList" class="rec-list"></ul>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-32 mb-32">
+            <a href="index.html" class="btn-cta">
+                🔄 Analyze Another Resume
+            </a>
+        </div>
+    </div>
+
+    <script src="js/result.js"></script>
+</body>
+</html>
